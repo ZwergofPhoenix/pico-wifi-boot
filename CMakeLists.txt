@@ -48,7 +48,19 @@ target_link_libraries(bootloader
   lwipopts_provider
 )
 
-function(wifi_boot_user_program_bin NAME)
-  pico_set_linker_script(${NAME} ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/memmap_offset_flash.ld)
-  pico_add_bin_output(${NAME})
-endfunction()
+
+if (${PICO_PLATFORM} STREQUAL "rp2040")
+
+  function(wifi_boot_user_program_bin NAME)
+    pico_set_linker_script(${NAME} ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/memmap_offset_flash_rp2040.ld)
+    pico_add_bin_output(${NAME})
+  endfunction()
+
+elseif (${PICO_PLATFORM} STREQUAL "rp2350-arm-s" OR ${PICO_PLATFORM} STREQUAL "rp2350-riscv")
+
+  function(wifi_boot_user_program_bin NAME)
+    pico_set_linker_script(${NAME} ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/memmap_offset_flash_rp2350.ld)
+    pico_add_bin_output(${NAME})
+  endfunction()
+
+endif ()
