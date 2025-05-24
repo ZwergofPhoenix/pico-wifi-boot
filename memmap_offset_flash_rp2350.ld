@@ -1,5 +1,5 @@
 /* Modified version of default Pico SDK memmap with flash region offset.
-   https://github.com/raspberrypi/pico-sdk/blob/dd4aacbd1c42346c9437a0c4b682a67a45577f01/src/rp2_common/pico_crt0/rp2040/memmap_default.ld
+   https://github.com/raspberrypi/pico-sdk/blob/ee68c78d0afae2b69c03ae1a72bf5cc267a2d94c/src/rp2_common/pico_crt0/rp2350/memmap_default.ld
 
    Defines the following symbols for use by code:
     __exidx_start
